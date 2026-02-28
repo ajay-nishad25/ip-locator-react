@@ -1,0 +1,32 @@
+<svg width="64" height="64" viewBox="0 0 64 64"
+xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Gradient Background -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#bg)"/>
+
+  <!-- Inner Surface -->
+  <circle cx="32" cy="32" r="21" fill="#FFFFFF"/>
+
+  <!-- IP Text -->
+  <text
+    x="32"
+    y="34"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-size="20"
+    font-family="Inter, Arial, sans-serif"
+    font-weight="800"
+    fill="#111827"
+    letter-spacing="1">
+    IP
+  </text>
+
+</svg>

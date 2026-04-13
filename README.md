@@ -1,3 +1,6 @@
+<img width="1898" height="980" alt="image" src="https://github.com/user-attachments/assets/e416186f-7014-43d2-82c2-dc3b8a28c05b" />
+
+
 # IP Locator — React
 
 A real-time IP address and geolocation tracker built with React, featuring a blue hacker-style Matrix rain background and live IP change detection.

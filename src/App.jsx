@@ -6,7 +6,7 @@ import InfoCard from './components/InfoCard';
 import ChangeLog from './components/ChangeLog';
 
 const POLL_MS = 10000;
-const API_URL = 'http://ip-api.com/json/?fields=status,message,query,city,regionName,country,countryCode,isp,timezone,zip,lat,lon';
+const API_URL = 'https://ipinfo.io/json';
 
 const EMPTY = {
   ip: '', city: '', region: '', country: '',
@@ -43,9 +43,9 @@ export default function App() {
       const res = await fetch(API_URL);
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const json = await res.json();
-      if (json.status === 'fail') throw new Error(json.message || 'API error');
+      if (!json.ip) throw new Error('API error: Missing IP address');
 
-      const freshIP = json.query || 'Unknown';
+      const freshIP = json.ip || 'Unknown';
 
       // ── Compare against the last known IP (stored in ref) ──
       const oldIP = knownIPRef.current;          // what we had before
@@ -71,16 +71,17 @@ export default function App() {
       }
 
       // Build new data object
+      const locParts = json.loc ? json.loc.split(',') : [null, null];
       const freshData = {
         ip: freshIP,
         city: json.city || 'Unknown',
-        region: json.regionName || 'Unknown',
-        country: (json.country || 'Unknown') + (json.countryCode ? ` (${json.countryCode})` : ''),
-        isp: json.isp || 'Unknown',
+        region: json.region || 'Unknown',
+        country: json.country || 'Unknown',
+        isp: json.org || 'Unknown',
         timezone: json.timezone || 'Unknown',
-        postal: json.zip || 'Unknown',
-        lat: json.lat ?? null,
-        lon: json.lon ?? null,
+        postal: json.postal || 'Unknown',
+        lat: locParts[0] ? parseFloat(locParts[0]) : null,
+        lon: locParts[1] ? parseFloat(locParts[1]) : null,
       };
 
       // Update refs AFTER we've used the old values above

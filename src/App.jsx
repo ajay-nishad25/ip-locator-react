@@ -4,6 +4,7 @@ import MatrixRain from './components/MatrixRain';
 import ChangeBanner from './components/ChangeBanner';
 import InfoCard from './components/InfoCard';
 import ChangeLog from './components/ChangeLog';
+import PipCanvas from './components/PipCanvas';
 
 const POLL_MS = 10000;
 const API_URL = 'https://ipinfo.io/json';
@@ -197,11 +198,12 @@ export default function App() {
             </div>
           </div>
 
-          {/* Refresh */}
+          {/* Buttons row */}
           <div className="btn-row">
             <button className="refresh-btn" onClick={() => fetchIPData(false)}>
               ↻ &nbsp;REFRESH
             </button>
+            <PipCanvas ip={data.ip} status={status} lastChecked={lastChecked} />
           </div>
 
           {error && <div className="error-msg">{error}</div>}

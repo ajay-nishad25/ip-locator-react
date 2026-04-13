@@ -27,4 +27,4 @@ npm start
 
 Then open **http://localhost:3000** in your browser.
 
-> Uses `ip-api.com` free API — no API key needed, works on localhost out of the box.
+> Uses `https://ipinfo.io/json` free API — no API key needed, works on localhost out of the box.

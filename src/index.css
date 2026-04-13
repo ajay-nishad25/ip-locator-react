@@ -21,10 +21,10 @@
   --bg: #050a0f;
   --panel: #0a1520;
   --border: #0d3a5c;
-  --accent: #00d4ff;
-  --accent2: #00ff88;
+  --accent: #00ff15;
+  --accent2: #00ff15;
   --text: #c8e8f0;
-  --dim: #3a6a7a;
+  --dim: #ffffff;
   --glow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
@@ -92,7 +92,6 @@ header {
   font-size: clamp(1.6rem, 5vw, 2.8rem);
   font-weight: 900;
   color: var(--accent);
-  text-shadow: 0 0 10px var(--accent), 0 0 30px rgba(0, 212, 255, 0.6), 0 0 60px rgba(0, 212, 255, 0.2);
   letter-spacing: 0.12em;
   line-height: 1.1;
 }
@@ -227,7 +226,6 @@ header {
   margin-bottom: 20px;
   position: relative;
   overflow: hidden;
-  box-shadow: var(--glow), inset 0 0 40px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
 }
 
@@ -260,7 +258,6 @@ header {
   text-align: center;
   letter-spacing: 0.05em;
   margin-top: 8px;
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
   transition: color 0.3s;
 }
 

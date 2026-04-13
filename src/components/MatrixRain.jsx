@@ -13,10 +13,10 @@ export default function MatrixRain() {
     let columns, drops, brightness;
 
     function resize() {
-      canvas.width  = window.innerWidth;
+      canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      columns    = Math.floor(canvas.width / FONT_SIZE);
-      drops      = Array.from({ length: columns }, () => Math.random() * -100);
+      columns = Math.floor(canvas.width / FONT_SIZE);
+      drops = Array.from({ length: columns }, () => Math.random() * -100);
       brightness = Array.from({ length: columns }, () => Math.floor(120 + Math.random() * 135));
     }
 
@@ -31,21 +31,21 @@ export default function MatrixRain() {
         const y = drops[i] * FONT_SIZE;
 
         if (drops[i] >= 0 && drops[i] <= 1) {
-          ctx.fillStyle   = '#e0f8ff';
-          ctx.shadowColor = '#00d4ff';
-          ctx.shadowBlur  = 18;
+          ctx.fillStyle = '#e0ffe0';
+          ctx.shadowColor = '#00ff44';
+          ctx.shadowBlur = 18;
         } else {
           const b = brightness[i];
-          ctx.fillStyle   = `rgb(${Math.floor(b * 0.02)},${Math.floor(b * 0.72)},${b})`;
-          ctx.shadowColor = 'rgba(0,212,255,0.6)';
-          ctx.shadowBlur  = Math.random() > 0.92 ? 12 : 4;
+          ctx.fillStyle = `rgb(${Math.floor(b * 0.02)},${b},${Math.floor(b * 0.15)})`;
+          ctx.shadowColor = 'rgba(0,255,68,0.6)';
+          ctx.shadowBlur = Math.random() > 0.92 ? 12 : 4;
         }
 
         ctx.fillText(char, x, y);
 
         if (Math.random() > 0.97) brightness[i] = Math.floor(100 + Math.random() * 155);
         if (y > canvas.height && Math.random() > 0.97) {
-          drops[i]      = 0;
+          drops[i] = 0;
           brightness[i] = Math.floor(120 + Math.random() * 135);
         }
         drops[i] += 0.6 + Math.random() * 0.4;
